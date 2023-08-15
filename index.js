@@ -1,6 +1,9 @@
 const inquirer = require('inquirer');
+const fs = require('fs');
+const { Circle, Square, Triangle } = require('./lib/shapes.js');
 
-const shapes = require('./lib/shapes.js');
+
+
 
 const promptUser = () => {
     return inquirer.prompt([
@@ -25,5 +28,28 @@ const promptUser = () => {
         name: 'textColor',
         message: 'What color do you want for your text?',
     },
-])};
+])
 
+    .then(res => {
+        let shape
+        if (res.shape ==='Circle'){
+            shape = new Circle(res.text, res.color, res.textColor);
+        } else if 
+        (res.shape ==='Square') {
+            shape = new Square(res.text, res.color, res.textColor);
+        } else if
+        (res.shape ==='Triangle') {
+            shape = new Triangle(res.text, res.color, res.textColor);
+        }
+
+        console.log(shape);
+
+        const svgFile = shape.render();
+        fs.writeFileSync('logo.svg', svgFile);
+        console.log('image saved to logo.svg');
+
+    });
+
+};
+
+promptUser();

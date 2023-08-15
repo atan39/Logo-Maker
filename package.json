@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/atan39/Logo-Maker#readme",
   "dependencies": {
-    "inquirer": "8.2.4"
+    "inquirer": "^8.2.4"
+  },
+  "directories": {
+    "example": "examples",
+    "lib": "lib"
   }
 }
